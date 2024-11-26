@@ -100,7 +100,7 @@ public class BVATesting {
     public void testFactorial() {
         calculator.num1 = 0;
         calculator.result = calculator.factorial(0);
-        Assert.assertEquals("Factorial of 0 should be 1", 1, (int) calculator.result);
+       Assert.assertEquals("Factorial of 0 should be 1", 1, (int) calculator.result);
 
         calculator.num1 = 5;
         calculator.result = calculator.factorial((int) calculator.num1);

@@ -13,7 +13,7 @@ public class IntegrationTesting {
 
     @Before
     public void init(){
-        calculator = new Main();
+      calculator = new Main();
     }
     /*
      * Input: 2 + 3
