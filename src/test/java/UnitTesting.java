@@ -8,7 +8,7 @@ import java.awt.event.ActionEvent;
 
 
 @RunWith(JUnit4.class)
-public class TestCalculatorFunctional {
+public class UnitTesting {
 
     Main os;
 
