@@ -31,6 +31,11 @@ public class Main implements ActionListener {
     public char operator;
 
     public Main() {
+        if (GraphicsEnvironment.isHeadless()) {
+            System.out.println("Running in a headless environment, GUI components will not be initialized.");
+            return;
+        }
+
         frame = new JFrame("Calculator");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(450, 600);
@@ -122,7 +127,11 @@ public class Main implements ActionListener {
     }
 
     public static void main(String[] args) {
-        Main calculator = new Main();
+        if (!GraphicsEnvironment.isHeadless()) {
+            Main calculator = new Main();
+        } else {
+            System.out.println("No GUI support, running in headless mode.");
+        }
     }
 
     public long factorial(int n) {
