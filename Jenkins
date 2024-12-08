@@ -9,13 +9,13 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building version ${parameters.VERSION}'
-                sh 'export LANG=en_US.UTF-8 && ./gradlew build'
+                sh './gradlew build'
             }
         }
         stage('Test') {
             steps {
                 echo 'Testing version ${parameters.VERSION}'
-                sh 'export LANG=en_US.UTF-8 && ./gradlew test'
+                sh 'export JAVA_OPTS="-Djava.awt.headless=true" && ./gradlew test'
             }
         }
     }
