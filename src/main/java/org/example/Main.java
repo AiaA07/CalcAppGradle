@@ -3,10 +3,12 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 
-public class Main implements ActionListener{
+public class Main implements ActionListener {
 
     JFrame frame;
     public JTextField textField;
+    Font myFont = new Font("Segoe UI Symbol", Font.BOLD, 30); // Font that supports square root
+
     JButton[] numberButtons = new JButton[13];
     JButton[] functionButtons = new JButton[13];
     public JButton addButton;
@@ -23,12 +25,12 @@ public class Main implements ActionListener{
     public JButton clrButton;
     public JButton negButton;
     JPanel panel;
-    Font myFont = new Font("Ink Free", Font.BOLD, 30);
     public double num1 = 0;
     public double num2 = 0;
     public double result = 0;
     public char operator;
-     public Main() {
+
+    public Main() {
         frame = new JFrame("Calculator");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(450, 600);
@@ -49,7 +51,11 @@ public class Main implements ActionListener{
         clrButton = new JButton("Clr");
         negButton = new JButton("(-)");
         expoButton = new JButton("^");
-        sqrtButton = new JButton("√");
+
+        // Square root button
+        sqrtButton = new JButton("\u221A"); // Unicode for √
+        sqrtButton.setFont(myFont); // Apply font that supports √
+
         percButton = new JButton("%");
         factButton = new JButton("!");
 
@@ -62,7 +68,7 @@ public class Main implements ActionListener{
         functionButtons[6] = delButton;
         functionButtons[7] = clrButton;
         functionButtons[8] = negButton;
-        functionButtons[10] = sqrtButton;
+        functionButtons[10] = sqrtButton; // Corrected index
         functionButtons[9] = expoButton;
         functionButtons[11] = percButton;
         functionButtons[12] = factButton;
@@ -171,7 +177,7 @@ public class Main implements ActionListener{
         }
         if (e.getSource() == sqrtButton) {
             num1 = Double.parseDouble(textField.getText());
-            operator = '√';
+            operator = 's'; // Updated operator for square root
             textField.setText("");
             if (num1 < 0) {
                 textField.setText("Invalid square root of a negative");
@@ -206,7 +212,7 @@ public class Main implements ActionListener{
                 textField.setText("Error: Division by zero");
             }
 
-            switch(operator) {
+            switch (operator) {
                 case '+':
                     result = num1 + num2;
                     break;
@@ -245,9 +251,4 @@ public class Main implements ActionListener{
             textField.setText(String.format("%.1f", temp));
         }
     }
-
-
-
-
-
 }
