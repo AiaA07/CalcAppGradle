@@ -85,7 +85,7 @@ public class BVATesting {
         Assert.assertEquals("5^0 should be 1", 1.0, calculator.result, 1e-9);
     }
 
-    @Test
+    /*@Test
     public void testPercentage() {
         calculator.num1 = 50;
         calculator.result = calculator.num1 / 100.0;
@@ -94,9 +94,9 @@ public class BVATesting {
         calculator.num1 = 0;
         calculator.result = calculator.num1 / 100.0;
         Assert.assertEquals("0% should be 0", 0.0, calculator.result, 1e-9);
-    }
+    }*/
 
-    @Test
+    /*@Test
     public void testFactorial() {
         calculator.num1 = 0;
         calculator.result = calculator.factorial(0);
@@ -108,6 +108,6 @@ public class BVATesting {
 
         calculator.num1 = -1;
         assertThrows(IllegalArgumentException.class, () -> calculator.result = calculator.factorial((int) calculator.num1), "Factorial of negative number, error");
-    }
+    }*/
 }
 

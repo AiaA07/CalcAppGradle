@@ -7,7 +7,7 @@ public class Main implements ActionListener {
 
     JFrame frame;
     public JTextField textField;
-    Font myFont = new Font("Segoe UI Symbol", Font.BOLD, 30); // Font that supports square root
+    Font myFont = new Font("Segoe UI Symbol", Font.BOLD, 30);
 
     JButton[] numberButtons = new JButton[13];
     JButton[] functionButtons = new JButton[13];
@@ -52,9 +52,8 @@ public class Main implements ActionListener {
         negButton = new JButton("(-)");
         expoButton = new JButton("^");
 
-        // Square root button
-        sqrtButton = new JButton("\u221A"); // Unicode for √
-        sqrtButton.setFont(myFont); // Apply font that supports √
+        sqrtButton = new JButton("√");
+        sqrtButton.setFont(myFont);
 
         percButton = new JButton("%");
         factButton = new JButton("!");
@@ -68,7 +67,7 @@ public class Main implements ActionListener {
         functionButtons[6] = delButton;
         functionButtons[7] = clrButton;
         functionButtons[8] = negButton;
-        functionButtons[10] = sqrtButton; // Corrected index
+        functionButtons[10] = sqrtButton;
         functionButtons[9] = expoButton;
         functionButtons[11] = percButton;
         functionButtons[12] = factButton;
@@ -177,7 +176,7 @@ public class Main implements ActionListener {
         }
         if (e.getSource() == sqrtButton) {
             num1 = Double.parseDouble(textField.getText());
-            operator = 's'; // Updated operator for square root
+            operator = 's';
             textField.setText("");
             if (num1 < 0) {
                 textField.setText("Invalid square root of a negative");
