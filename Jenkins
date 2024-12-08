@@ -1,5 +1,4 @@
 pipeline {
-
     agent any
 
     parameters {
@@ -10,24 +9,24 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building version ${parameters.VERSION}'
-                sh './gradlew build'
+                sh 'export LANG=en_US.UTF-8 && ./gradlew build'
             }
         }
         stage('Test') {
             steps {
                 echo 'Testing version ${parameters.VERSION}'
-                sh './gradlew test'
+                sh 'export LANG=en_US.UTF-8 && ./gradlew test'
             }
-            post {
-                always {
-                    publishHTML(target: [
-                        reportDir: 'build/reports/tests/test',
-                        reportFiles: 'index.html',
-                        reportName: 'Test Report'
-                    ])
-                }
-            }
+        }
+    }
 
+    post {
+        always {
+            publishHTML(target: [
+                reportDir: 'build/reports/tests/test',
+                reportFiles: 'index.html',
+                reportName: 'Test Report'
+            ])
         }
     }
 }
