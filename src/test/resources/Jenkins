@@ -18,16 +18,16 @@ pipeline {
                 echo 'Testing version ${parameters.VERSION}'
                 sh './gradlew test'
             }
-            /* post {
+            post {
                 always {
-                    //junit "build/reports/tests //** / //.html"
-                    publishHTML{
+                    publishHTML(target: [
                         reportDir: 'build/reports/tests/test',
-                        reportFiles: 'index.html'
+                        reportFiles: 'index.html',
                         reportName: 'Test Report'
-                    }
+                    ])
                 }
-            } */
+            }
+
         }
     }
 }
